@@ -1,0 +1,58 @@
+        <FrameLayout xmlns:android ="http://schemas.android,com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+    <TextView
+        android:id="@+id/question_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/false_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height= "wrap_content"
+        android:layout_gravity ="center_vertical| center_horizontal"
+        android:padding =240dp""/>
+    
+    <Button
+        android:id="@+id/false_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="22dp"
+        android:layout_toLeftOf="@+id/question_text_view"
+        android:text="@string/false_button" />
+
+    <Button
+        android:id="@+id/true_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question_text_view"
+        android:layout_toRightOf="@+id/question_text_view"
+        android:text="@string/true_button" />
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/true_button"
+        android:layout_below="@+id/true_button"
+        android:layout_marginTop="22dp"
+        android:src ="@drawable/ arrow_right"
+         />
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/next_button"
+        android:layout_alignBottom="@+id/next_button"
+        android:layout_alignLeft="@+id/false_button"
+        android:drawablePaddig="4dp"
+        android:drawableLeft="@drawable/arrow_Left"
+        android:text="@string/previous_button" />
+
+
+</FrameLayout><AbsoluteLayout ></Abso
