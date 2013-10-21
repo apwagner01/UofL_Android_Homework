@@ -12,7 +12,10 @@ import android.support.v4.app.FragmentTransaction;
 
 public class CrimeFragment extends FragmentManager {
 	private Crime mCrime;
-	private Edit
+	private EditText mTitleField;
+	private Button mDateButton;
+	private CheckBox mSolvedCheckBox; 
+	
 	@Override 
 	public void onCreate(Bundle savedInstancesState) { 
 		super.onCreate(savedInstanceState);
@@ -33,7 +36,17 @@ public class CrimeFragment extends FragmentManager {
 		 //This one too 
 		 } 
 	});
+		 mDateButton =(Button)v.findViewById(R.id.crime_date);
+		 mDateButton.setText(mCrime.getDate().toString());
+		 mDateButton.setEnabled(false);
 		 
+		 mSolvedCheckBox = (CheckBox) v. findViewById(R.id.crime_solved);
+		 mSolvedCheckBox.setOnCheckedChangeListener (new OnCheckedChangeListener (){
+			 public void onCheckedChanged(CompundButton buttonView, boolean isChecked){
+				 // Set crime's solved property 
+				 mCrime.setSolved(isChecked);
+			 }
+		 });
 		return v;
 	}
 	}
