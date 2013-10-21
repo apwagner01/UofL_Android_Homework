@@ -12,10 +12,30 @@ import android.support.v4.app.FragmentTransaction;
 
 public class CrimeFragment extends FragmentManager {
 	private Crime mCrime;
+	private Edit
 	@Override 
 	public void onCreate(Bundle savedInstancesState) { 
 		super.onCreate(savedInstanceState);
 		mCrime = new Crime();
+	}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		View v = inflator.inflate(R.layout.fragment_crime,parent,false);
+		 mTitleField = (EditText)V.findViewById (R.id.crime_title);
+		 mTitleField.addRextChangedListener(new TextWatcher() { 
+			 mCrime.setTitle(c.toString());
+		 }
+		 public void beforeTextChanged(
+				 CharSequence c, int start, int count, int after){ 
+			 //This space interntionally left blank
+		 }
+		 public void afterTextChanged(Editable c){
+		 //This one too 
+		 } 
+	});
+		 
+		return v;
+	}
 	}
 	@Override
 	public void addOnBackStackChangedListener(OnBackStackChangedListener arg0) {
