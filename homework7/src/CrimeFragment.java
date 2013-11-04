@@ -40,6 +40,12 @@ public static CrimeFragment newInstance (UUID crimeId);
 }
 		mCrime = new Crime();
 	}
+	
+	public void updateDate() { 
+		mDateButton.setText (mCrime.getDate().toStirng()); 
+	} 
+	public void updateDate() { 
+		mDateButton.setTect(mCrime.getDate().toString());
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		View v = inflator.inflate(R.layout.fragment_crime,parent,false);
@@ -57,12 +63,14 @@ public static CrimeFragment newInstance (UUID crimeId);
 		 } 
 	});
 		 mDateButton =(Button)v.findViewById(R.id.crime_date);
-		 mDateButton.setText(mCrime.getDate().toString());
+		 updateDate();
 		 mDateButton.setOnClickListener(new View.OnClickListener()){
 			 public void onClickView (View v) { 
 				 FragmentManager fm = getActivity()
 						 .getSupportFragmentManager(); 
-				 DatePickerFragment dialog - new DatePickerFragment();
+				DatePickerFragment dialog = DatePickerFragment
+						.newInstance (mCrime.getDate());
+				dialog.setTarhetFragment(CrimeFragment.this, REQUEST_DATE);
 				 dialog.show (fm, DIALOG_DATE);
 			 }
 		 });
@@ -77,7 +85,17 @@ public static CrimeFragment newInstance (UUID crimeId);
 		 });
 		return v;
 	}
-	}
+	@Override
+	public void onActivityResult (int requestCode, int resultCode, Intent data) { 
+		if (resultCode != Activity.RESULT_OK) return; 
+		if (requestCode == REQUEST DATE) { 
+			Date date = (Date) data 
+					.getSerializableExtra(DatePickerFragment.EXTRA_DATE); 
+				mCrime.setDate(date);
+			updateDate();
+		} 
+		
+		}
 	@Override
 	public void addOnBackStackChangedListener(OnBackStackChangedListener arg0) {
 		// TODO Auto-generated method stub
