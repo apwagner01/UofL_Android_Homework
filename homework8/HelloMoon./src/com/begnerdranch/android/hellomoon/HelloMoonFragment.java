@@ -13,6 +13,12 @@ private AudioPlayer mPlayer = new AudioPlayer();
 private Button mPlayButton; 
 private Button mStopButton; 
 
+@Override 
+public void onCreate (Bundle savedInstanceState)	{
+	super.OnCreate(savedInstanceState);
+	set RetainInstance (true); 
+}
+
 @Override
 public View onCreateView (LayoutInflater inflater, ViewGroup parent,
 		Bundle savedInstanceState) {
